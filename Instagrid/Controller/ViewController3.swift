@@ -11,19 +11,22 @@ class ViewController3: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        selectedRight.isHidden = false
         // Do any additional setup after loading the view.
     }
     
+    @IBOutlet weak var selectedLeft: UIImageView!
+    
+    @IBOutlet weak var selectedMiddle: UIImageView!
+    
+    @IBOutlet weak var selectedRight: UIImageView!
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func leftButton(_ sender: Any) {
     }
-    */
-
+    @IBAction func middleButton(_ sender: Any) {
+    }
+    @IBAction func rightButton(_ sender: Any) {
+       
+    }
 }
