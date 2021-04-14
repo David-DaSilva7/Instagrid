@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ThirstySoftRegular.otf">
+            <string>ThirstySoftRegular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="QTG-ko-bvc">
+                                <rect key="frame" x="95" y="357" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="SYw-nU-9Mp"/>
+                                    <constraint firstAttribute="width" secondItem="QTG-ko-bvc" secondAttribute="height" multiplier="1:1" id="gsA-h2-wPu"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAK-Fi-TOJ">
+                                <rect key="frame" x="84.666666666666686" y="194" width="221" height="73"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="73" id="Q0d-RK-r79"/>
+                                    <constraint firstAttribute="width" constant="221" id="k8k-GN-DiK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="56"/>
+                                <color key="textColor" red="1" green="0.98683923500000004" blue="0.99670980880000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.062745101750000004" green="0.40000003579999999" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="QTG-ko-bvc" firstAttribute="top" secondItem="kAK-Fi-TOJ" secondAttribute="bottom" constant="50" id="1an-lE-1G6"/>
+                            <constraint firstItem="kAK-Fi-TOJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="7af-q6-2Gr"/>
+                            <constraint firstItem="QTG-ko-bvc" firstAttribute="top" secondItem="kAK-Fi-TOJ" secondAttribute="bottom" constant="90" id="8HM-AC-Weg"/>
+                            <constraint firstItem="kAK-Fi-TOJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="NtY-Rh-L54"/>
+                            <constraint firstItem="QTG-ko-bvc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Vec-vZ-leu"/>
+                            <constraint firstItem="kAK-Fi-TOJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="m2U-yq-RH1"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7af-q6-2Gr"/>
+                                <exclude reference="1an-lE-1G6"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="7af-q6-2Gr"/>
+                                <exclude reference="NtY-Rh-L54"/>
+                                <include reference="1an-lE-1G6"/>
+                                <exclude reference="8HM-AC-Weg"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icon" width="60" height="60"/>
+    </resources>
+</document>
