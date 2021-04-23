@@ -15,6 +15,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
     
     @IBOutlet weak var selectedThree: UIImageView!
     
+    @IBOutlet weak var fullButtonUp: UIButton!
+    
+    @IBOutlet weak var fullButtonDown: UIButton!
+    
+    @IBOutlet weak var buttonLeftUp: UIButton!
+    
+    @IBOutlet weak var buttonRightUp: UIButton!
+    
+    @IBOutlet weak var buttonLeftDown: UIButton!
+    
+    @IBOutlet weak var buttonRightDown: UIButton!
+    
     var imagePicker = UIImagePickerController()
     
     
@@ -52,36 +64,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         self.selectedThree.isHidden = selectedThree
     }
     
-   
-    @IBOutlet weak var fullButtonUp: UIButton!
+    @IBOutlet var buttons: [UIButton]!
     
-    @IBOutlet weak var fullButtonDown: UIButton!
-    
-    @IBOutlet weak var buttonLeftUp: UIButton!
-    
-    @IBOutlet weak var buttonRightUp: UIButton!
-    
-    @IBOutlet weak var buttonLeftDown: UIButton!
-    
-    @IBOutlet weak var buttonRightDown: UIButton!
-    
-    @IBAction func fullButtonDown(_ sender: Any) {
+    @IBAction func buttonTouch(_ sender: UIButton) {
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
+        if sender.tag == 0 {
+            
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        fullButtonDown?.setImage(nil, for: .normal)
+        buttons?.setImage(nil, for: .normal)
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            if  fullButtonDown?.backgroundImage(for: .normal) == nil {
+            if  buttons?.backgroundImage(for: .normal) == nil {
                 Images.dictionary.updateValue(image, forKey: image.description)
-                fullButtonDown?.setBackgroundImage(image, for: .normal)
+                buttons?.setBackgroundImage(image, for: .normal)
             } else {
-                if fullButtonDown?.imageView?.description != image.description {
-                    if let strongImageView = fullButtonDown?.imageView, let strongImage = strongImageView.image {
+                if buttons?.imageView?.description != image.description {
+                    if let strongImageView = buttons?.imageView, let strongImage = strongImageView.image {
                         Images.dictionary.updateValue(image, forKey: image.description)
-                        fullButtonDown?.setBackgroundImage(image, for: .normal)
+                        buttons?.setBackgroundImage(image, for: .normal)
                     }
                 }
             }
