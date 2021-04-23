@@ -7,46 +7,85 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    @IBOutlet weak var selectedOne: UIImageView!
+    
+    @IBOutlet weak var selectedTwo: UIImageView!
+    
+    @IBOutlet weak var selectedThree: UIImageView!
+    
+    var imagePicker = UIImagePickerController()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        selectedMiddle.isHidden = false
+        selectedTwo.isHidden = false
+        imagePicker.delegate = self
     }
     
-    @IBOutlet weak var selectedLeft: UIImageView!
-    
-    @IBOutlet weak var selectedRight: UIImageView!
-    
-    @IBOutlet weak var selectedMiddle: UIImageView!
-
     @IBAction func leftButton(_ sender: Any) {
-       
+        
+        adaptButtons(fullButtonUp: false, fullButtonDown: true, buttonLeftUp: true, buttonRightUp: true, buttonLeftDown: false, buttonRightDown: false, selectedOne: false, selectedTwo: true, selectedThree: true)
     }
     
     @IBAction func middleButton(_ sender: Any) {
-
+        
+        adaptButtons(fullButtonUp: true, fullButtonDown: false, buttonLeftUp: false, buttonRightUp: false, buttonLeftDown: true, buttonRightDown: true, selectedOne: true, selectedTwo: false, selectedThree: true)
     }
     
     @IBAction func rightButton(_ sender: Any) {
-
+        
+        adaptButtons(fullButtonUp: true, fullButtonDown: true, buttonLeftUp: false, buttonRightUp: false, buttonLeftDown: false, buttonRightDown: false, selectedOne: true, selectedTwo: true, selectedThree: false)
     }
     
-    @IBOutlet weak var imageOne: UIImageView!
-    
-    @IBOutlet weak var imageTwo: UIImageView!
-    
-    @IBOutlet weak var imageThree: UIImageView!
-    
-    @IBAction func didTapPlusOne(_ sender: Any) {
+    func adaptButtons(fullButtonUp: Bool,fullButtonDown: Bool,buttonLeftUp: Bool, buttonRightUp: Bool, buttonLeftDown: Bool, buttonRightDown: Bool, selectedOne: Bool, selectedTwo: Bool, selectedThree: Bool) {
+        self.fullButtonUp.isHidden = fullButtonUp
+        self.fullButtonDown.isHidden = fullButtonDown
+        self.buttonLeftUp.isHidden = buttonLeftUp
+        self.buttonRightUp.isHidden = buttonRightUp
+        self.buttonLeftDown.isHidden = buttonLeftDown
+        self.buttonRightDown.isHidden = buttonRightDown
+        self.selectedOne.isHidden = selectedOne
+        self.selectedTwo.isHidden = selectedTwo
+        self.selectedThree.isHidden = selectedThree
     }
     
-    @IBAction func didTapPlusTwo(_ sender: Any) {
+   
+    @IBOutlet weak var fullButtonUp: UIButton!
+    
+    @IBOutlet weak var fullButtonDown: UIButton!
+    
+    @IBOutlet weak var buttonLeftUp: UIButton!
+    
+    @IBOutlet weak var buttonRightUp: UIButton!
+    
+    @IBOutlet weak var buttonLeftDown: UIButton!
+    
+    @IBOutlet weak var buttonRightDown: UIButton!
+    
+    @IBAction func fullButtonDown(_ sender: Any) {
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func didTapPlusThree(_ sender: Any) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        fullButtonDown?.setImage(nil, for: .normal)
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            if  fullButtonDown?.backgroundImage(for: .normal) == nil {
+                Images.dictionary.updateValue(image, forKey: image.description)
+                fullButtonDown?.setBackgroundImage(image, for: .normal)
+            } else {
+                if fullButtonDown?.imageView?.description != image.description {
+                    if let strongImageView = fullButtonDown?.imageView, let strongImage = strongImageView.image {
+                        Images.dictionary.updateValue(image, forKey: image.description)
+                        fullButtonDown?.setBackgroundImage(image, for: .normal)
+                    }
+                }
+            }
+            imagePicker.dismiss(animated: true, completion: nil)
+        }
     }
-    
 }
-

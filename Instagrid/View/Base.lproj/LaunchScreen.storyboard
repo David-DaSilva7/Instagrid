@@ -28,10 +28,10 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAK-Fi-TOJ">
-                                <rect key="frame" x="84.666666666666686" y="194" width="221" height="73"/>
+                                <rect key="frame" x="80" y="194" width="230" height="73"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="73" id="Q0d-RK-r79"/>
-                                    <constraint firstAttribute="width" constant="221" id="k8k-GN-DiK"/>
+                                    <constraint firstAttribute="width" constant="230" id="k8k-GN-DiK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="56"/>
                                 <color key="textColor" red="1" green="0.98683923500000004" blue="0.99670980880000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -39,7 +39,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.062745101750000004" green="0.40000003579999999" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.1764705926" green="0.47058826679999999" blue="0.69411766529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="QTG-ko-bvc" firstAttribute="top" secondItem="kAK-Fi-TOJ" secondAttribute="bottom" constant="50" id="1an-lE-1G6"/>
                             <constraint firstItem="kAK-Fi-TOJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="7af-q6-2Gr"/>
