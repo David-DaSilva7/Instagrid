@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -40,6 +41,9 @@
                                         <rect key="frame" x="16" y="16" width="318" height="151"/>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="PlusButton"/>
+                                        <connections>
+                                            <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xmO-Bs-uLx"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zi2-qI-mcN">
                                         <rect key="frame" x="16" y="16" width="318" height="151"/>
@@ -51,6 +55,9 @@
                                                     <constraint firstAttribute="width" secondItem="Gw0-TD-xhY" secondAttribute="height" multiplier="1:1" id="Amz-Mm-lyz"/>
                                                 </constraints>
                                                 <state key="normal" image="PlusButton"/>
+                                                <connections>
+                                                    <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1ox-Xx-6wp"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cty-4F-5cf">
                                                 <rect key="frame" x="167" y="0.0" width="151" height="151"/>
@@ -59,6 +66,9 @@
                                                     <constraint firstAttribute="width" secondItem="cty-4F-5cf" secondAttribute="height" multiplier="1:1" id="Teh-eK-Ode"/>
                                                 </constraints>
                                                 <state key="normal" image="PlusButton"/>
+                                                <connections>
+                                                    <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pd3-QI-FQd"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.062745101750000004" green="0.40000003579999999" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -81,6 +91,9 @@
                                                     <constraint firstAttribute="width" secondItem="9hz-Fs-Oap" secondAttribute="height" multiplier="1:1" id="xSs-WX-MAV"/>
                                                 </constraints>
                                                 <state key="normal" image="PlusButton"/>
+                                                <connections>
+                                                    <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pTP-hX-uh0"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aI2-n7-n0v">
                                                 <rect key="frame" x="167" y="0.0" width="151" height="151"/>
@@ -89,6 +102,9 @@
                                                     <constraint firstAttribute="width" secondItem="aI2-n7-n0v" secondAttribute="height" multiplier="1:1" id="06U-96-Z6T"/>
                                                 </constraints>
                                                 <state key="normal" image="PlusButton"/>
+                                                <connections>
+                                                    <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ARO-z9-y4Z"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.062745101750000004" green="0.40000003579999999" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -107,7 +123,7 @@
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="PlusButton"/>
                                         <connections>
-                                            <action selector="fullButtonDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dOM-zZ-EvD"/>
+                                            <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a9T-yG-6k2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -516,10 +532,16 @@
                         <outlet property="buttonRightDown" destination="aI2-n7-n0v" id="Ze2-tG-x2F"/>
                         <outlet property="buttonRightUp" destination="cty-4F-5cf" id="kGQ-UC-Dl0"/>
                         <outlet property="fullButtonDown" destination="dXQ-vR-1hJ" id="plV-88-gKg"/>
-                        <outlet property="fullButtonUp" destination="hm8-aU-X6o" id="cc5-Pk-t9O"/>
+                        <outlet property="fullButtonUp" destination="hm8-aU-X6o" id="vuV-25-cGD"/>
                         <outlet property="selectedOne" destination="I85-1H-I0O" id="pYQ-Ra-ql2"/>
                         <outlet property="selectedThree" destination="HcM-uK-E54" id="XSa-Ug-L0T"/>
                         <outlet property="selectedTwo" destination="61S-Ba-BFk" id="j4s-cr-GNm"/>
+                        <outletCollection property="buttons" destination="hm8-aU-X6o" collectionClass="NSMutableArray" id="IiB-cF-l4v"/>
+                        <outletCollection property="buttons" destination="Gw0-TD-xhY" collectionClass="NSMutableArray" id="6Xk-4B-px2"/>
+                        <outletCollection property="buttons" destination="cty-4F-5cf" collectionClass="NSMutableArray" id="Xr0-wS-asr"/>
+                        <outletCollection property="buttons" destination="9hz-Fs-Oap" collectionClass="NSMutableArray" id="ZnO-FL-rIq"/>
+                        <outletCollection property="buttons" destination="aI2-n7-n0v" collectionClass="NSMutableArray" id="oDi-5y-wIw"/>
+                        <outletCollection property="buttons" destination="dXQ-vR-1hJ" collectionClass="NSMutableArray" id="n6b-sw-JYs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
