@@ -10,25 +10,20 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet weak var selectedOne: UIImageView!
-    
     @IBOutlet weak var selectedTwo: UIImageView!
-    
     @IBOutlet weak var selectedThree: UIImageView!
     
-    @IBOutlet weak var fullButtonUp: UIButton!
+    @IBOutlet weak var fullButtonUp: UIButton!      // tag 0
+    @IBOutlet weak var buttonLeftUp: UIButton!      // tag 1
+    @IBOutlet weak var buttonRightUp: UIButton!     // tag 2
+    @IBOutlet weak var buttonLeftDown: UIButton!    // tag 3
+    @IBOutlet weak var buttonRightDown: UIButton!   // tag 4
+    @IBOutlet weak var fullButtonDown: UIButton!    // tag 5
     
-    @IBOutlet weak var fullButtonDown: UIButton!
-    
-    @IBOutlet weak var buttonLeftUp: UIButton!
-    
-    @IBOutlet weak var buttonRightUp: UIButton!
-    
-    @IBOutlet weak var buttonLeftDown: UIButton!
-    
-    @IBOutlet weak var buttonRightDown: UIButton!
+    @IBOutlet var buttons: [UIButton]!
     
     var imagePicker = UIImagePickerController()
-    
+    var currentButtonTag: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,20 +32,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         imagePicker.delegate = self
     }
     
-    @IBAction func leftButton(_ sender: Any) {
+    
+    @IBAction func bottomButtonTouched(_ sender: UIButton) {
         
-        adaptButtons(fullButtonUp: false, fullButtonDown: true, buttonLeftUp: true, buttonRightUp: true, buttonLeftDown: false, buttonRightDown: false, selectedOne: false, selectedTwo: true, selectedThree: true)
+        if sender.tag == 10 { // left bottom button touched
+            adaptButtons(fullButtonUp: false, fullButtonDown: true, buttonLeftUp: true, buttonRightUp: true, buttonLeftDown: false, buttonRightDown: false, selectedOne: false, selectedTwo: true, selectedThree: true)
+        } else if sender.tag == 20 { // middle bottom button touched
+            adaptButtons(fullButtonUp: true, fullButtonDown: false, buttonLeftUp: false, buttonRightUp: false, buttonLeftDown: true, buttonRightDown: true, selectedOne: true, selectedTwo: false, selectedThree: true)
+        } else if sender.tag == 30 { // right bottom button touched
+            adaptButtons(fullButtonUp: true, fullButtonDown: true, buttonLeftUp: false, buttonRightUp: false, buttonLeftDown: false, buttonRightDown: false, selectedOne: true, selectedTwo: true, selectedThree: false)
+        }
     }
     
-    @IBAction func middleButton(_ sender: Any) {
-        
-        adaptButtons(fullButtonUp: true, fullButtonDown: false, buttonLeftUp: false, buttonRightUp: false, buttonLeftDown: true, buttonRightDown: true, selectedOne: true, selectedTwo: false, selectedThree: true)
-    }
     
-    @IBAction func rightButton(_ sender: Any) {
-        
-        adaptButtons(fullButtonUp: true, fullButtonDown: true, buttonLeftUp: false, buttonRightUp: false, buttonLeftDown: false, buttonRightDown: false, selectedOne: true, selectedTwo: true, selectedThree: false)
-    }
+    
     
     func adaptButtons(fullButtonUp: Bool,fullButtonDown: Bool,buttonLeftUp: Bool, buttonRightUp: Bool, buttonLeftDown: Bool, buttonRightDown: Bool, selectedOne: Bool, selectedTwo: Bool, selectedThree: Bool) {
         self.fullButtonUp.isHidden = fullButtonUp
@@ -64,28 +59,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         self.selectedThree.isHidden = selectedThree
     }
     
-    @IBOutlet var buttons: [UIButton]!
-    
     @IBAction func buttonTouch(_ sender: UIButton) {
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
-        if sender.tag == 0 {
-            
-        }
+        
+        currentButtonTag = sender.tag
+        print("boutton tag: \(sender.tag)") // TODO: Remove after implementation working
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        buttons?.setImage(nil, for: .normal)
+        guard let currentButtonTag = currentButtonTag else {
+            return
+        }
+        buttons[currentButtonTag].setImage(nil, for: .normal)
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            if  buttons?.backgroundImage(for: .normal) == nil {
+            if  buttons[currentButtonTag].backgroundImage(for: .normal) == nil {
                 Images.dictionary.updateValue(image, forKey: image.description)
-                buttons?.setBackgroundImage(image, for: .normal)
+                buttons[currentButtonTag].setBackgroundImage(image, for: .normal)
             } else {
-                if buttons?.imageView?.description != image.description {
-                    if let strongImageView = buttons?.imageView, let strongImage = strongImageView.image {
+                if buttons[currentButtonTag].imageView?.description != image.description {
+                    if let strongImageView = buttons[currentButtonTag].imageView, let strongImage = strongImageView.image {
                         Images.dictionary.updateValue(image, forKey: image.description)
-                        buttons?.setBackgroundImage(image, for: .normal)
+                        buttons[currentButtonTag].setBackgroundImage(image, for: .normal)
                     }
                 }
             }
