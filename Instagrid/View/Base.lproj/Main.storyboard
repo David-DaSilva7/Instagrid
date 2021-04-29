@@ -8,9 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Delm-Medium.otf">
-            <string>Delm-Medium</string>
-        </array>
         <array key="ThirstySoftRegular.otf">
             <string>ThirstySoftRegular</string>
         </array>
@@ -43,6 +40,7 @@
                                         <state key="normal" image="PlusButton"/>
                                         <connections>
                                             <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xmO-Bs-uLx"/>
+                                            <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4q4-qX-h6O"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zi2-qI-mcN">
@@ -57,6 +55,7 @@
                                                 <state key="normal" image="PlusButton"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1ox-Xx-6wp"/>
+                                                    <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gCI-6l-MIq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cty-4F-5cf">
@@ -68,6 +67,7 @@
                                                 <state key="normal" image="PlusButton"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pd3-QI-FQd"/>
+                                                    <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vn8-e6-EIU"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -93,6 +93,7 @@
                                                 <state key="normal" image="PlusButton"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pTP-hX-uh0"/>
+                                                    <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VlB-kZ-lgW"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aI2-n7-n0v">
@@ -104,6 +105,7 @@
                                                 <state key="normal" image="PlusButton"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ARO-z9-y4Z"/>
+                                                    <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NXY-J1-T1V"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -124,10 +126,12 @@
                                         <state key="normal" image="PlusButton"/>
                                         <connections>
                                             <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a9T-yG-6k2"/>
+                                            <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mPK-TI-vu3"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.062745101750000004" green="0.40000003579999999" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="hm8-aU-X6o" firstAttribute="top" secondItem="mUv-Hb-KmZ" secondAttribute="top" constant="16" id="4n1-em-Lip"/>
                                     <constraint firstItem="zi2-qI-mcN" firstAttribute="centerX" secondItem="mUv-Hb-KmZ" secondAttribute="centerX" id="5Yl-Lu-oH3"/>
@@ -173,7 +177,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pz-WC-bsW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4Pz-WC-bsW">
                                 <rect key="frame" x="110" y="164" width="170" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="B4d-fJ-fEK"/>
@@ -181,14 +185,32 @@
                                     <constraint firstAttribute="width" constant="170" id="qUO-qk-OUt"/>
                                     <constraint firstAttribute="height" constant="26" id="yPW-me-8yr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
-                                <color key="textColor" red="1" green="0.98683923500000004" blue="0.99670980880000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Swipe up to share ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="21" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="B4d-fJ-fEK"/>
                                         <exclude reference="qUO-qk-OUt"/>
                                     </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <attributedString key="attributedText">
+                                        <fragment content="Swipe left to share ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="21" name="ArialMT"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </variation>
                                 <variation key="heightClass=regular">
                                     <mask key="constraints">
@@ -281,6 +303,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="8DG-5o-JZj">
                                 <rect key="frame" x="190" y="143" width="10" height="13"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="10" id="6ek-1p-pRy"/>
                                     <constraint firstAttribute="height" constant="13" id="xhs-sQ-4a6"/>
@@ -308,6 +331,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.71764707569999997" green="0.84313726430000002" blue="0.89803922179999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="I85-1H-I0O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="55" id="1Qz-UE-HHz"/>
                             <constraint firstItem="61S-Ba-BFk" firstAttribute="top" secondItem="I85-1H-I0O" secondAttribute="bottom" constant="20" id="1kr-Lw-WQc"/>
@@ -533,20 +557,28 @@
                         <outlet property="buttonRightUp" destination="cty-4F-5cf" id="kGQ-UC-Dl0"/>
                         <outlet property="fullButtonDown" destination="dXQ-vR-1hJ" id="plV-88-gKg"/>
                         <outlet property="fullButtonUp" destination="hm8-aU-X6o" id="vuV-25-cGD"/>
+                        <outlet property="gridContainerView" destination="mUv-Hb-KmZ" id="aUc-7S-Qax"/>
                         <outlet property="selectedOne" destination="I85-1H-I0O" id="pYQ-Ra-ql2"/>
                         <outlet property="selectedThree" destination="HcM-uK-E54" id="XSa-Ug-L0T"/>
                         <outlet property="selectedTwo" destination="61S-Ba-BFk" id="j4s-cr-GNm"/>
+                        <outlet property="viewSwipe" destination="GZK-Z6-eQ7" id="qzb-C3-1mj"/>
                         <outletCollection property="buttons" destination="hm8-aU-X6o" collectionClass="NSMutableArray" id="IiB-cF-l4v"/>
                         <outletCollection property="buttons" destination="Gw0-TD-xhY" collectionClass="NSMutableArray" id="6Xk-4B-px2"/>
                         <outletCollection property="buttons" destination="cty-4F-5cf" collectionClass="NSMutableArray" id="Xr0-wS-asr"/>
                         <outletCollection property="buttons" destination="9hz-Fs-Oap" collectionClass="NSMutableArray" id="ZnO-FL-rIq"/>
                         <outletCollection property="buttons" destination="aI2-n7-n0v" collectionClass="NSMutableArray" id="oDi-5y-wIw"/>
                         <outletCollection property="buttons" destination="dXQ-vR-1hJ" collectionClass="NSMutableArray" id="n6b-sw-JYs"/>
+                        <outletCollection property="gestureRecognizers" destination="GZK-Z6-eQ7" collectionClass="NSMutableArray" id="DcV-xY-f64"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="GZK-Z6-eQ7">
+                    <connections>
+                        <action selector="swipe:" destination="BYZ-38-t0r" id="Xyw-VM-Ae5"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="409.23076923076923" y="253.79146919431278"/>
+            <point key="canvasLocation" x="203" y="147"/>
         </scene>
     </scenes>
     <resources>
