@@ -13,7 +13,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
     @IBOutlet weak var gridContainerView: UIView!
     
     @IBOutlet weak var viewSwipe: UISwipeGestureRecognizer!
-    @IBOutlet var gestureRecognizers: [UISwipeGestureRecognizer]!
     
     @IBOutlet weak var selectedOne: UIImageView!
     @IBOutlet weak var selectedTwo: UIImageView!
@@ -38,8 +37,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         // Do any additional setup after loading the view.
         selectedTwo.isHidden = false
         imagePicker.delegate = self
+        initSwipeDirection()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        DispatchQueue.main.async {
+            self.initSwipeDirection()
+        }
+    }
+    
+    private func initSwipeDirection() {
+        if UIApplication.shared.statusBarOrientation.isPortrait {
+            viewSwipe.direction = .up
+        } else {
+            viewSwipe.direction = .left
+        }
+    }
     
     @IBAction func bottomButtonTouched(_ sender: UIButton) {
         
@@ -68,7 +82,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
-
+        
         currentButtonTag = sender.tag
     }
     
@@ -98,16 +112,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
             return
         }
         
-        if Images.dictionary.count > 0 {
-            if (strongStackViewSwipe.direction == .up) {
-                translation = CGAffineTransform(translationX: 0, y: -strongGridContainerView.frame.maxY)
-            }
-            else if (strongStackViewSwipe.direction == .left) {
-                translation = CGAffineTransform(translationX: -strongGridContainerView.frame.maxX, y: 0)
-            }
-            
-            checkIfPhotoLibraryAccessAuthorized()
+        if (strongStackViewSwipe.direction == .up) {
+            translation = CGAffineTransform(translationX: 0, y: -strongGridContainerView.frame.maxY)
         }
+        else if (strongStackViewSwipe.direction == .left) {
+            translation = CGAffineTransform(translationX: -strongGridContainerView.frame.maxX, y: 0)
+        }
+        
+        checkIfPhotoLibraryAccessAuthorized()
     }
     
     func checkIfPhotoLibraryAccessAuthorized() {
@@ -164,16 +176,5 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
             }, completion: nil)
         }
         return activityViewController
-    }
-    
-    @IBAction func selectImage(_ sender: Any) {
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-            imagePicker.delegate = self
-            imagePicker.sourceType = .savedPhotosAlbum
-            imagePicker.allowsEditing = false
-            if let topController = UIApplication.topViewController() {
-                topController.present(imagePicker, animated: true, completion: nil)
-            }
-        }
     }
 }

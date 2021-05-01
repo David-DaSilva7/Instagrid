@@ -40,7 +40,6 @@
                                         <state key="normal" image="PlusButton"/>
                                         <connections>
                                             <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xmO-Bs-uLx"/>
-                                            <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4q4-qX-h6O"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zi2-qI-mcN">
@@ -55,7 +54,6 @@
                                                 <state key="normal" image="PlusButton"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1ox-Xx-6wp"/>
-                                                    <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gCI-6l-MIq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cty-4F-5cf">
@@ -67,7 +65,6 @@
                                                 <state key="normal" image="PlusButton"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pd3-QI-FQd"/>
-                                                    <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vn8-e6-EIU"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -93,7 +90,6 @@
                                                 <state key="normal" image="PlusButton"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pTP-hX-uh0"/>
-                                                    <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VlB-kZ-lgW"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aI2-n7-n0v">
@@ -105,7 +101,6 @@
                                                 <state key="normal" image="PlusButton"/>
                                                 <connections>
                                                     <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ARO-z9-y4Z"/>
-                                                    <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NXY-J1-T1V"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -126,7 +121,6 @@
                                         <state key="normal" image="PlusButton"/>
                                         <connections>
                                             <action selector="buttonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a9T-yG-6k2"/>
-                                            <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mPK-TI-vu3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -177,7 +171,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4Pz-WC-bsW">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4Pz-WC-bsW">
                                 <rect key="frame" x="110" y="164" width="170" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="B4d-fJ-fEK"/>
@@ -220,6 +214,9 @@
                                         <exclude reference="yPW-me-8yr"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="GZK-Z6-eQ7" appends="YES" id="edD-Xj-A2q"/>
+                                </connections>
                             </label>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFt-5q-sAb">
                                 <rect key="frame" x="55" y="710" width="80" height="80"/>
@@ -561,24 +558,23 @@
                         <outlet property="selectedOne" destination="I85-1H-I0O" id="pYQ-Ra-ql2"/>
                         <outlet property="selectedThree" destination="HcM-uK-E54" id="XSa-Ug-L0T"/>
                         <outlet property="selectedTwo" destination="61S-Ba-BFk" id="j4s-cr-GNm"/>
-                        <outlet property="viewSwipe" destination="GZK-Z6-eQ7" id="qzb-C3-1mj"/>
+                        <outlet property="viewSwipe" destination="GZK-Z6-eQ7" id="zoY-My-ScB"/>
                         <outletCollection property="buttons" destination="hm8-aU-X6o" collectionClass="NSMutableArray" id="IiB-cF-l4v"/>
                         <outletCollection property="buttons" destination="Gw0-TD-xhY" collectionClass="NSMutableArray" id="6Xk-4B-px2"/>
                         <outletCollection property="buttons" destination="cty-4F-5cf" collectionClass="NSMutableArray" id="Xr0-wS-asr"/>
                         <outletCollection property="buttons" destination="9hz-Fs-Oap" collectionClass="NSMutableArray" id="ZnO-FL-rIq"/>
                         <outletCollection property="buttons" destination="aI2-n7-n0v" collectionClass="NSMutableArray" id="oDi-5y-wIw"/>
                         <outletCollection property="buttons" destination="dXQ-vR-1hJ" collectionClass="NSMutableArray" id="n6b-sw-JYs"/>
-                        <outletCollection property="gestureRecognizers" destination="GZK-Z6-eQ7" collectionClass="NSMutableArray" id="DcV-xY-f64"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="up" id="GZK-Z6-eQ7">
                     <connections>
-                        <action selector="swipe:" destination="BYZ-38-t0r" id="Xyw-VM-Ae5"/>
+                        <action selector="swipe:" destination="BYZ-38-t0r" id="9TB-A5-Sdr"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="203" y="147"/>
+            <point key="canvasLocation" x="-95" y="26"/>
         </scene>
     </scenes>
     <resources>
