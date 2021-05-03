@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C860FCFA263AD98700FC801B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C860FCF9263AD98700FC801B /* UIView+Extension.swift */; };
-		C860FCFF263AEF4000FC801B /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C860FCFE263AEF4000FC801B /* UIApplication+Extension.swift */; };
 		C8848E9C262EC870003C2E0B /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C8848E9B262EC870003C2E0B /* Delm-Medium.otf */; };
 		C8848E9F262EC880003C2E0B /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C8848E9E262EC880003C2E0B /* ThirstySoftRegular.otf */; };
 		C8848EB62632B6F7003C2E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8848EB52632B6F7003C2E0B /* Assets.xcassets */; };
@@ -20,7 +19,6 @@
 
 /* Begin PBXFileReference section */
 		C860FCF9263AD98700FC801B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		C860FCFE263AEF4000FC801B /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		C8848E9B262EC870003C2E0B /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Delm-Medium.otf"; path = "../../../../Downloads/Delm-Medium.otf"; sourceTree = "<group>"; };
 		C8848E9E262EC880003C2E0B /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ThirstySoftRegular.otf; path = ../../../../Downloads/ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		C8848EB52632B6F7003C2E0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,7 +45,6 @@
 			isa = PBXGroup;
 			children = (
 				C860FCF9263AD98700FC801B /* UIView+Extension.swift */,
-				C860FCFE263AEF4000FC801B /* UIApplication+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -180,7 +177,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C860FCFF263AEF4000FC801B /* UIApplication+Extension.swift in Sources */,
 				C8928D61261C674B009A9B61 /* ViewController.swift in Sources */,
 				C860FCFA263AD98700FC801B /* UIView+Extension.swift in Sources */,
 				C8928D5D261C674B009A9B61 /* AppDelegate.swift in Sources */,

@@ -11,7 +11,6 @@ import Photos
 class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet weak var gridContainerView: UIView!
-    
     @IBOutlet weak var viewSwipe: UISwipeGestureRecognizer!
     
     @IBOutlet weak var selectedOne: UIImageView!
@@ -28,9 +27,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
     
     @IBOutlet var buttons: [UIButton]!
     
-    var imagePicker = UIImagePickerController()
-    var currentButtonTag: Int?
-    var translation = CGAffineTransform()
+    fileprivate let imagePicker = UIImagePickerController()
+    fileprivate var currentButtonTag: Int?
+    fileprivate var translation = CGAffineTransform()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +39,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         initSwipeDirection()
     }
     
+    // function that allows you to perform the swipe as a priority when changing position
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         DispatchQueue.main.async {
@@ -47,7 +47,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         }
     }
     
-    private func initSwipeDirection() {
+    // Perform the correct swipe according to the layout
+    fileprivate func initSwipeDirection() {
         if UIApplication.shared.statusBarOrientation.isPortrait {
             viewSwipe.direction = .up
         } else {
@@ -55,6 +56,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         }
     }
     
+    // Change the image format according to the button pressed
     @IBAction func bottomButtonTouched(_ sender: UIButton) {
         
         if sender.tag == 10 { // left bottom button touched
@@ -66,7 +68,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         }
     }
     
-    func adaptButtons(fullButtonUp: Bool,fullButtonDown: Bool,buttonLeftUp: Bool, buttonRightUp: Bool, buttonLeftDown: Bool, buttonRightDown: Bool, selectedOne: Bool, selectedTwo: Bool, selectedThree: Bool) {
+    // adapt the image select according to the button pressed
+    fileprivate func adaptButtons(fullButtonUp: Bool,fullButtonDown: Bool,buttonLeftUp: Bool, buttonRightUp: Bool, buttonLeftDown: Bool, buttonRightDown: Bool, selectedOne: Bool, selectedTwo: Bool, selectedThree: Bool) {
         self.fullButtonUp.isHidden = fullButtonUp
         self.fullButtonDown.isHidden = fullButtonDown
         self.buttonLeftUp.isHidden = buttonLeftUp
@@ -78,6 +81,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         self.selectedThree.isHidden = selectedThree
     }
     
+    // action that allows access to the library
     @IBAction func buttonTouch(_ sender: UIButton) {
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
@@ -86,6 +90,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         currentButtonTag = sender.tag
     }
     
+    // apply selected image on button
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let currentButtonTag = self.currentButtonTag else {
             return
@@ -103,11 +108,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         }
     }
     
+    // action that allows to perform a swipe
     @IBAction func swipe(_ sender: UISwipeGestureRecognizer) {
         swipeGridContainerView()
     }
     
-    func swipeGridContainerView() {
+    // function that allows the appropriate translation
+    fileprivate func swipeGridContainerView() {
         guard let strongGridContainerView = gridContainerView, let strongStackViewSwipe = viewSwipe else {
             return
         }
@@ -122,7 +129,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         checkIfPhotoLibraryAccessAuthorized()
     }
     
-    func checkIfPhotoLibraryAccessAuthorized() {
+    // give access to the phone to browse the album
+    fileprivate func checkIfPhotoLibraryAccessAuthorized() {
         let status = PHPhotoLibrary.authorizationStatus()
         switch status {
         case .authorized, .notDetermined, .restricted:
@@ -132,7 +140,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         }
     }
     
-    func presentActivityController() {
+    // create animation when chooses a photo
+    fileprivate func presentActivityController() {
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0, delay: 0, options: [.curveEaseIn], animations: {
             guard let strongGridContainerView = self.gridContainerView else {
                 return
@@ -144,7 +153,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         })
     }
     
-    func createAlertToGrantAccessToPhotoLibrary() {
+    // create an alert if there is no authorization to the library
+    fileprivate func createAlertToGrantAccessToPhotoLibrary() {
         let alert = UIAlertController(title: "Instagrid need access to your Photos",
                                       message: "If you want save image to your photo library please allow access in Instagrid app settings.",
                                       preferredStyle: UIAlertController.Style.alert)
@@ -166,7 +176,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         present(alert, animated: true, completion: nil)
     }
     
-    func shareScreenshotOfGridContainer() -> UIActivityViewController {
+    // share and save image after swipe
+    fileprivate func shareScreenshotOfGridContainer() -> UIActivityViewController {
         let sharedImage = [gridContainerView?.screenshot]
         let activityViewController = UIActivityViewController(activityItems: sharedImage as [Any], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = UIActivityViewController.CompletionWithItemsHandler? { [weak self] activityType, completed, returnedItems, activityError in
