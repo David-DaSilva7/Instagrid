@@ -29,10 +29,9 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAK-Fi-TOJ">
-                                <rect key="frame" x="80" y="194" width="230" height="73"/>
+                                <rect key="frame" x="84.666666666666686" y="194" width="221" height="73"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="73" id="Q0d-RK-r79"/>
-                                    <constraint firstAttribute="width" constant="230" id="k8k-GN-DiK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="56"/>
                                 <color key="textColor" red="1" green="0.98683923500000004" blue="0.99670980880000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

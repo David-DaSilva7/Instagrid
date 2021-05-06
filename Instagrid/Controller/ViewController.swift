@@ -180,7 +180,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
     fileprivate func shareScreenshotOfGridContainer() -> UIActivityViewController {
         let sharedImage = [gridContainerView?.screenshot]
         let activityViewController = UIActivityViewController(activityItems: sharedImage as [Any], applicationActivities: nil)
-        activityViewController.completionWithItemsHandler = UIActivityViewController.CompletionWithItemsHandler? { [weak self] activityType, completed, returnedItems, activityError in
+        activityViewController.completionWithItemsHandler = UIActivityViewController.CompletionWithItemsHandler? { [weak self]  _,_,_,_ in
             
             UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: [.curveEaseIn], animations: {
                 self?.gridContainerView?.transform = CGAffineTransform(translationX: 0, y: 0)
