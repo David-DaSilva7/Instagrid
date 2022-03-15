@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -411,8 +411,6 @@
                                 <exclude reference="8DG-5o-JZj"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="dfH-TX-Owk"/>
-                                <exclude reference="sbB-fp-pZg"/>
                                 <exclude reference="NtS-Bd-UxR"/>
                                 <exclude reference="86i-ec-3Ku"/>
                                 <exclude reference="XSA-Fw-AhV"/>
@@ -420,6 +418,8 @@
                                 <exclude reference="74B-gT-rA4"/>
                                 <exclude reference="Ehg-13-sQy"/>
                                 <exclude reference="yJr-2s-8f4"/>
+                                <exclude reference="dfH-TX-Owk"/>
+                                <exclude reference="sbB-fp-pZg"/>
                                 <exclude reference="4iL-RK-uGO"/>
                                 <exclude reference="6Jd-IY-MgB"/>
                                 <exclude reference="MEi-yS-iUM"/>
@@ -530,13 +530,13 @@
                                 <exclude reference="wFu-XU-N7h"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="dfH-TX-Owk"/>
-                                <include reference="sbB-fp-pZg"/>
                                 <exclude reference="2RC-Ek-JC9"/>
                                 <exclude reference="ICG-IX-p5y"/>
                                 <include reference="XSA-Fw-AhV"/>
                                 <exclude reference="c7b-Cm-1hE"/>
                                 <include reference="nQA-0I-v0H"/>
+                                <include reference="dfH-TX-Owk"/>
+                                <include reference="sbB-fp-pZg"/>
                                 <exclude reference="4iL-RK-uGO"/>
                                 <exclude reference="KqO-wW-UXW"/>
                                 <exclude reference="MEi-yS-iUM"/>
